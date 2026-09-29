@@ -39,6 +39,9 @@ public class Project_Jon_Hinson {
       
       inputFile.close();
       
+      int smokerCount = 0;
+      int nonSmokerCount = 0;
+      
       // Display information for each Policy object
       for (Policy policy : policies) {
          System.out.println("Policy Number: " + policy.getPolicyNumber());
@@ -53,6 +56,16 @@ public class Project_Jon_Hinson {
          System.out.printf("Policyholder's BMI: %.2f%n", policy.calculateBMI());
          System.out.printf("Policy Price: $%.2f%n", policy.calculatePolicyPrice());
          System.out.println();
+         
+         if (policy.getSmokingStatus().equalsIgnoreCase("smoker")) {
+            smokerCount++;
+         }
+         else if (policy.getSmokingStatus().equalsIgnoreCase("non-smoker")) {
+            nonSmokerCount++;
+         }
       }
+      
+      System.out.println("The number of policies with a smoker is: " + smokerCount);
+      System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
    }
 }
